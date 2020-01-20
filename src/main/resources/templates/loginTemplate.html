@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Change later for a folder instead of cdn -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+
+    <!-- favicon  -->
+    <link rel="icon" type="image/png" href="./media/favicon.png">
+
+    <!-- ## LOAD STYLSHEETS ## -->
+    <link rel="stylesheet" type="text/css" href="./css/header_footer.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/loginTemplate.css">
+</head>
+<body>
+
+
+<main>
+    <header class="container" th:replace="fragments/headerTemplate :: header"></header>
+
+    <p class="error" th:if="${param.error != null}" th:text="ERROR"></p>
+
+    <div class="container d-flex justify-content-center">
+
+        <form  id="loginForm" action="/login" method="post">
+            <div class="form-group row">
+                <label for="un" class="col-sm-12 col-form-label">Email:</label>
+                <div class="col-sm-12">
+                    <input class="form-control" id="un" name="username" type="text"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="pw" class="col-sm-12 col-form-label">Password:</label>
+                <div class="col-sm-12">
+                    <input id="pw" name="password" class="form-control" type="password"/>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                    <button id="sub" type="submit" class="btn btn-login">Sign in</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <footer th:replace="fragments/footerTemplate :: footer"></footer>
+
+</main>
+
+</body>
+</html>

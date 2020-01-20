@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="./css/eventPagePopUp.css">
+    <script async defer src="./js/jquery.js"></script>
+</head>
+<body>
+    <div class="popUpWrapper">
+        <div id="changeTeamPopUp" style="display:none">
+            <form id="changeTeam">
+                <div class="boxTopWrapper">
+                    <p class="boxTitleWrapper">Change Team</p>
+                    <a class="close"><img alt="X" src="/media/close.jpg"></a>
+                </div>
+                <div class="lineBreakWrapper">
+                    <hr class="lineBreak">
+                </div>
+                <div class="formWrapper">
+                    <select id="teamsList">
+                        <option value="test">test</option>
+                        <option value="test">test</option>
+                    </select>
+                    <button type="submit" value="submit" name="submit" onclick="changeTeam()">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="createTeamPopUp" style="display:none">
+            <form id="createTeam" >
+                <div class="boxTopWrapper">
+                    <p class="boxTitleWrapper">Create Team</p>
+                    <a class="close"><img alt="X" src="/media/close.jpg"></a>
+                </div>
+                <div class="lineBreakWrapper">
+                    <hr class="lineBreak">
+                </div>
+                <div class="formWrapper">
+                    <input id="createTeamTextBox" type="text">
+                    <button type="submit" value="submit" name="submit" onclick="postNewTeam()">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="viewTeammatesPopUp" style="display:none">
+            <div class="boxTopWrapper">
+                <p class="boxTitleWrapper">Team Members</p>
+                <a class="close"><img alt="X" src="/media/close.jpg"></a>
+            </div>
+            <div class="lineBreakWrapper">
+                <hr class="lineBreak">
+            </div>
+            <div class="formWrapper">
+                <ul id="teammatesLi">
+                </ul>
+            </div>
+        </div>
+
+        <div id="viewAttendeesPopUp" style="display:none">
+            <div class="boxTopWrapper">
+                <p class="boxTitleWrapper">View Attendees</p>
+                <a class="close"><img alt="X" src="/media/close.jpg"></a>
+            </div>
+            <div class="lineBreakWrapper">
+                <hr class="lineBreak">
+            </div>
+            <div class="formWrapper">
+                <ul id="attendeesLi">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/jquery.js"></script>
+
+    <script src="js/eventPagePopup.js"></script>
+
+</body>
+</html>

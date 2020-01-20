@@ -1,0 +1,554 @@
+/* STRUCTURE CSS */
+
+body {
+  background-color: azure;
+  min-height: 100vh;
+}
+
+header {
+  margin: 0;
+}
+
+html,body{
+  overflow: -moz-scrollbars-none;
+  overflow: hidden !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#eventBoxOuter {
+  min-height: 80vh;
+  width: 100vw;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+@media only screen and (max-height:500px) {
+  #eventBoxOuter {
+    min-height: unset;
+  }
+}
+
+#eventBoxInner {
+  width: 900px;
+  margin: 10px;
+  display: flex;
+  flex-flow: column;
+}
+
+.infoBox1 {
+  height: 35%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.infoBox2 {
+  height: 65%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.eventTitleBox {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.eventTitleBoxInner {
+  width: 97%;
+  padding: 24px;
+  display: table;
+  table-layout: fixed;
+}
+
+#eventTitle {
+  word-wrap: break-word;
+  text-align: center
+}
+
+
+.isTeamEventBoxOuter {
+  height: 0;
+}
+
+.isTeamEventBoxInner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#isTeamEvent {
+  position: relative;
+  bottom: 7.5px;
+  text-align: center;
+  display: inline;
+  font-size: 16px;
+}
+
+.eventTimeBox {
+  width: 40%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.eventTimeBoxInner {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+.eventStartTimeBox {
+}
+
+.eventStartTimeBoxInner1,.eventStartTimeBoxInner2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eventStartTimeBoxInner1 {
+  margin-bottom: 5px;
+}
+
+.eventStartTimeBoxInner2 {
+
+}
+
+.eventFromBox,.eventEndBox {
+  width: 100%;
+}
+
+.eventFromBox p,.eventEndBox p {
+  text-align: center;
+  margin: 0;
+}
+
+.timeLines {
+  width: 80%;
+  height: 1px;
+  margin: 0;
+  background-color: black;
+  border: 0;
+}
+
+#eventStartTime,#eventEndTime {
+  text-align: center;
+  margin: 0;
+}
+
+.eventDetailsBox {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.eventDetailsBoxInner {
+  width: 97%;
+}
+
+#eventDesc {
+  word-wrap: break-word;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.descLineBoxes {
+  width: 100%;
+  height: 0;
+  margin: 2px 0 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.descLines {
+  width: 94%;
+  height: 1px;
+  margin: 0;
+  border: 0;
+}
+
+p[id^="eventLoc"] {
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+p[id^="eventLoc"],#eventDesc {
+  padding: 0 15px 0 15px;
+}
+
+#eventLocPost {
+  /*padding-bottom: 5px;*/
+}
+
+.attendanceFormBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 7.5px 0 7.5px 0;
+}
+
+.attendanceFormBoxInner {
+  width: 97%;
+}
+
+#attendanceForm {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.attendanceButtons {
+  /*margin: 5px 0 5px 0;*/
+}
+
+.eventLocBox {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.eventLocBoxInner {
+  height: 100%;
+  width: 97%;
+  padding: 5px 0 5px 0;
+}
+
+#mapIframe {
+  width: 100%;
+  height: 100%;
+}
+
+.teamEventBox {
+  width: 60%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.teamEventBoxInner {
+  width: 97%;
+}
+
+.teamEventTitleBox {
+  width: 100%;
+}
+
+.teamEventTitleBox p {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+#eventTeamName {
+  text-align: center;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0 15px 0 15px;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.teamLineBoxes {
+  width: 100%;
+  height: 0;
+  margin: 2px 0 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamLines {
+  width: 80%;
+  height: 1px;
+  margin: 0;
+  border: 0;
+}
+
+
+.teamFormsBox {
+  width: 100%;
+  margin: 7.5px 0 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.teamFormBoxInner {
+  width: 98%;
+}
+
+#teamForm {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.teamButtons {
+
+}
+
+.eventTitleBoxInner,.eventDetailsBoxInner,.eventLocBoxInner,
+.eventStartTimeBoxInner1,.eventStartTimeBoxInner2,.teamEventBoxInner {
+  margin: 5px 15px 5px 15px;
+}
+
+.eventDetailsBoxInner {
+  margin: 5px 4px 5px 4px;
+}
+
+#eventAttendeesBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#eventAttendeesBoxInner {
+
+}
+
+#popUpBox {
+  width: 100vw;
+  height: 25vh;
+  border: 0;
+  background-color: rgba(255,255,255,0.1);
+  position: fixed;
+  z-index: 100;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 2s linear;
+}
+
+@media only screen and (max-width:700px) {
+
+  #eventBoxInner {
+    height: 100vh;
+    width: 100vw;
+    margin: unset;
+    display: table-column;
+  }
+
+  .infoBox1 {
+    height: unset;
+    flex-direction: column;
+  }
+
+  .infoBox2 {
+    height: unset;
+    min-height: 200px;
+    flex-direction: column;
+  }
+
+  .eventTitleBox {
+    height: 18vh;
+    min-height: 100px;
+    width: 100%;
+  }
+
+  .eventTitleBoxInner {
+    padding: 9px;
+  }
+
+  #eventTitle {
+    padding: 10px 0 10px 0;
+  }
+
+  #isTeamEvent {
+    bottom: 12.5px;
+  }
+
+  .eventTimeBox {
+    min-height: 50px;
+    width: 100%;
+  }
+
+  .eventStartTimeBox {
+    display: flex;
+    justify-content: center;
+  }
+
+  .eventStartTimeBoxInner1,.eventStartTimeBoxInner2 {
+    flex-direction: row;        /* !!!!!!!!!!!!!! */
+    justify-content: center;
+    width: 150px
+  }
+
+  .timeLines {
+    display: none;
+  }
+
+  .eventFromBox,.eventEndBox {
+    width: unset;
+    margin: 0 !important;
+
+  }
+
+  #eventEndTime {
+    width: unset;
+    margin: 0 !important;
+  }
+
+  .eventDetailsBox {
+    height: 25vh;
+    min-height: 100px;
+    width: 100%;
+  }
+
+  .eventLocBox {
+    min-height: unset;
+    width: 100%;
+  }
+
+  .eventLocBoxInner {
+    margin: 0;
+  }
+
+  #mapIframe {
+    height: 300px;
+  }
+
+  .teamEventBox {
+    width: 100%;
+  }
+
+  footer {
+    display: none !important;
+  }
+}
+
+/* STYLE CSS */
+
+  /* BORDER CURVES - OUTER BOX */
+
+
+.infoBox1 {
+  border-radius: 50px 50px 0 0;
+}
+
+#eventLocBox {
+  border-bottom-right-radius: 50px;
+}
+
+.infoBox2 {
+  border-radius: 0 0 50px 0;
+}
+
+.teamEventBox {
+  border-radius: 0 0 50px 50px;
+}
+
+  /* BORDER CURVES - INNER BOXES */
+
+#attendanceForm,#isTeamEvent,#mapIframe,.eventTitleBoxInner,.eventDetailsBoxInner,
+.eventStartTimeBoxInner1,.eventStartTimeBoxInner2,.teamEventBoxInner {
+  border-radius: 10px;
+  /*box-shadow: 1px 5px 100px rgba(0,0,128,0.1);*/
+}
+
+  /* BOX COLOURS */
+
+.infoBox1,.infoBox2,.teamEventBox {
+}
+
+#attendanceForm {
+}
+
+.eventTitleBoxInner,.eventDetailsBoxInner,.teamEventBoxInner,
+.eventStartTimeBoxInner1,.eventStartTimeBoxInner2,#mapIframe  {
+  background-color: rgba(0,0,100,.02); /* rgba(255,222,96,0.7); */
+  border: 1px solid lightgrey;
+}
+
+.eventFromBox p,.eventEndBox p,.teamEventTitleBox p {
+}
+
+.teamLines,.timeLines,.descLines {
+  background-color: grey;
+}
+
+.eventFromBox p, .eventEndBox p,.teamEventTitleBox p {
+  color: darkgrey;
+}
+
+/* BUTTON STYLING */
+
+.attendanceButtons,.teamButtons,#seeAttendeesButton {
+  all: unset;
+  border-radius: 10px;
+  padding: 2px 5px 2px 5px;
+  text-align: center;
+  font-weight:600;
+  border: 1px solid rgba(72, 72, 72, 0.3);
+  transition: all 0.1s;
+}
+
+#seeAttendeesButton {
+  margin: 0 0 7.5px 0;
+}
+
+.attendanceButtons {
+  width: 5rem
+}
+
+.teamButtons {
+  width: 7.3rem;
+}
+
+#seeAttendeesButton {
+  width: 5rem
+}
+
+.attendanceButtons:hover,.teamButtons:hover,#seeAttendeesButton:hover{
+  font-weight: 700;
+  background-color: rgba(72, 72, 72, 0.3);
+  box-shadow: 0.5px 0.5px 5px rgba(72, 72, 72, 0.3);
+  cursor: pointer;
+}
+
+/* FOR TEAM EVENTS ONLY */
+
+#isTeamEvent {
+  color: white;
+  background-color: rgba(0,0,128,1);
+  margin: 0;
+  padding: 0 10px 0 10px;
+}
+
+/*.eventTitleBoxInner {*/
+/*  border: 2.5px solid rgba(0,0,128,0.9);*/
+/*  box-shadow: 0.5px 0.5px 50px rgba(0,0,128,0.1);*/
+/*}*/
+
+
+
+/*background-color: rgba(0,0,128,0.1);!*rgba(0,0,128,0.5);*!
+ /*background-color: rgba(0,0,128,0.5)*/
+

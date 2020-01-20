@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta http-equiv="content-type" content="charset=UTF-8">
+    <!-- ## SITE META ## -->
+    <meta charset="utf-8">
+    <title>Template</title>
+    <meta name="description" content="">
+    <meta name="author" content="Group1 - Cardiff Uni">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ## LOAD STYLSHEETS ## -->
+    <link rel="stylesheet" media="all" href="./css/header_footer.cs">
+    <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css" type="text/css">
+
+    <!-- ## GOOGLE FONTS ## -->
+    <link href="./css/fonts.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<header th:fragment="header">
+
+    <nav class="navbar navbar-expand-lg navbar-light  bg-white p-0">
+        <a class="navbar-brand" href="/feedPage"> <img src="./media/hodge-bank-logo.png" alt=""></a>
+        <button th:if="${session.SESSION_USERNAME != null}"   class="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" ></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end " id="navbarNavDropdown">
+            <ul class="navbar-nav text-white ">
+
+                <li class="nav-item"  id="Calendar">
+                    <a  th:if="${session.SESSION_USERNAME != null}"  class="nav-link text-black px-4"  href="/Calendar">Calendar</a>
+                </li>
+
+                <li class="nav-item"  id="addEvent">
+                    <a  th:if="${session.SESSION_USERNAME != null}" class="nav-link text-black px-4" href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=168224e1-0bd0-450a-8613-3f1d26bacbd1&redirect_uri=http://localhost:8080/addEvent&response_type=code&scope=openid+Mail.Send">Add Events</a>
+                </li>
+
+                <li class="nav-item"  id="deleteEvent">
+                    <a  th:if="${session.SESSION_USERNAME != null}" class="nav-link text-black px-4" href="/deleteEvent">Delete Events</a>
+                </li>
+
+                <li class="nav-item"  id="logout">
+                    <a  th:if="${session.SESSION_USERNAME != null}" class="nav-link text-black px-4" href="/logout">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>
+
+</body>
+</html>

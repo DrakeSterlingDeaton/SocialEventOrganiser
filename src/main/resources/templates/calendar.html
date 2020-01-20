@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+
+    <title>Calendar</title>
+
+    <!-- favicon  -->
+    <link rel="icon" type="image/png" href="./media/favicon.png">
+
+    <!-- ## GOOGLE FONTS ## -->
+    <link href="./css/fonts.css" rel="stylesheet" type="text/css">
+
+    <!-- ## LOAD STYLSHEETS ## -->
+    <link rel="stylesheet" media="all" href="./css/header_footer.css">
+    <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css" type="text/css">
+
+    <link href='./fullcalendar/packages/core/main.css' rel='stylesheet' />
+    <link href='./fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+    <link href='./fullcalendar/packages/timegrid/main.css' rel='stylesheet' />
+    <link href='./fullcalendar/packages/list/main.css' rel='stylesheet' />
+    <link href='./fullcalendar/packages/bootstrap/main.css' rel='stylesheet' />
+    <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet' />
+    <link href='./css/calendar.css' rel='stylesheet' />
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src='./fullcalendar/packages/core/main.js'></script>
+    <script src='./fullcalendar/packages/interaction/main.js'></script>
+    <script src='./fullcalendar/packages/daygrid/main.js'></script>
+    <script src='./fullcalendar/packages/timegrid/main.js'></script>
+    <script src='./fullcalendar/packages/list/main.js'></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src='https://unpkg.com/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script src='./fullcalendar/packages/bootstrap/main.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./css/bootstrap/js/bootstrap.js" ></script>
+    <script src="./js/header.js"  defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src='./js/calendar.js'></script>
+
+
+  </head>
+
+  <body>
+  <header th:replace="fragments/headerTemplate :: header"></header>
+  <div class="container">
+    <div id='calendar-container'>
+      <div class="calendarToggle">
+        <input type="checkbox" id="calToggle" checked data-toggle="toggle" data-on="All Events" data-off="My Events" data-onstyle="allEvents" data-offstyle="myEvents" data-size="sm">
+      </div>
+      <div id="calendarTitle"></div>
+      <div id='calendar'></div>
+    </div>
+  </div>
+
+  <footer th:replace="fragments/footerTemplate :: footer"></footer>
+  <script>
+    var userId = [[${userId}]];
+  </script>
+  </body>
+</html>

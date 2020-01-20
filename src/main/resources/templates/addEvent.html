@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- ## SITE META ## -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Hodge Bank - Add Event</title>
+    <meta name="description" content="Page to add new events">
+    <meta name="author" content="Group1 - Cardiff Uni">
+    <meta name="viewgport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!-- favicon  -->
+    <link rel="icon" type="image/png" href="./media/favicon.png">
+
+    <!-- ## LOAD STYLSHEETS ## -->
+    <link rel="stylesheet" media="all" href="./css/header_footer.css" />
+    <link rel="stylesheet" media="all" href="./css/addevent.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/calendar.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="./css/spectrum.css" />
+
+    <!-- ## LOAD JAVASCRIPT FILES ## -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+</head>
+<body>
+    <header th:replace="fragments/headerTemplate :: header">
+    </header>
+
+    <section id="create_event" class="container d-flex justify-content-center">
+        <!-- ## CONTAINER ## -->
+        <div class="container">
+            <!-- ## PAGE TITLE ## -->
+            <h1>Create A New Event</h1>
+            <!-- ## ROW ## -->
+            <div class="new_event row">
+                <div class="col-12 col">
+                    <div class="box no-border nopad">
+                        <div class="qcTcktRegForm" style="border-left:none;">
+                            <div class="error">
+                            </div>
+
+                            <!-- ## TICKET FORM ## -->
+                            <form th:action="@{/post/event}" th:object="${event}" id="eventform" name="eventform" method="post">
+                                <div class="wrapper">
+                                    <label for="eventTitle">Title</label>
+                                    <input type="text" id="eventTitle" th:field="*{title}" required placeholder="Enter title of event" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventStartDate">Start Date</label>
+                                    <input type="text" class="datepicker" id="eventStartDate" th:field="*{eventStartDate}" required placeholder="yy-mm-dd" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventEndDate">End Date</label>
+                                    <input type="text" class="datepicker" id="eventEndDate" th:field="*{eventEndDate}" required placeholder="yy-mm-dd" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventStartTime">Start Time</label>
+                                    <input type="text" class="timepicker" id="eventStartTime" th:field="*{eventStartTime}" required placeholder="hh:mm" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventEndTime">End Time</label>
+                                    <input type="text" class="timepicker" id="eventEndTime" th:field="*{eventEndTime}" required placeholder="hh:mm" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventLocSt1">Address 1</label>
+                                    <input type="text" id="eventLocSt1" th:field="*{eventLocSt1}" required placeholder="Address 1" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventLocSt2">Address 2</label>
+                                    <input type="text" id="eventLocSt2" th:field="*{eventLocSt2}" required placeholder="Address 2" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventLocCity">City</label>
+                                    <input type="text" id="eventLocCity" name="eventLocCity" required placeholder="City" th:field="*{eventLocCity}" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventLocPost">Postcode</label>
+                                    <input type="text" id="eventLocPost" th:field="*{eventLocPost}" required placeholder="Post Code" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventDesc">Description</label>
+                                    <textarea id="eventDesc" th:field="*{description}" required></textarea>
+                                </div>
+                                <div class="wrapper">
+                                    <label for="group_yes">Team Event</label>
+                                    <input type="checkbox" id="group_yes" name="group_yes" />
+                                </div>
+                                <div class="wrapper hide_true">
+                                    <label for="maxTeamSize">Max Team Size</label>
+                                    <input type="number" id="maxTeamSize" th:field="*{maxTeamSize}" />
+                                </div>
+                                <div class="wrapper">
+                                    <label for="eventColour">Event Color</label>
+                                    <input type="color" id="eventColour" th:field="*{backgroundColor}" />
+                                </div>
+                                <div class="event_submit">
+                                    <button type="submit" class="submit">Submit event</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- ## EVENT FORM END ## -->
+                    </div>
+                    <!-- ## ROW END ## -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ## PAGE CONTENT END ## -->
+    <!-- ## CONTENT WRAPPER END ## -->
+    <script>
+        let dateToday = new Date();
+        $( function() {
+            $( ".datepicker" ).datepicker({
+                minDate: dateToday,
+                dateFormat: 'yy-mm-dd'
+            });
+        } );
+
+        $(document).ready(function(){
+            $('input.timepicker').timepicker({
+                interval: 10
+            });
+        });
+
+        $( function () {
+
+            $('div.hide_true').hide();
+            $('section#ajax_loader').hide();
+
+            //show it when the checkbox is clicked
+            $('input[name="group_yes"]').on('click', function () {
+                if ($(this).prop('checked')) {
+                    $('div.hide_true').fadeIn();
+                } else {
+                    $('div.hide_true').hide();
+                }
+            });
+        });
+
+        $(function(){
+            $(".event_submit button").click(function(event) {
+
+                let s_date = $('input#eventStartDate').val();
+                let e_date = $('input#eventEndDate').val();
+
+                let s_time = $('input#eventStartTime').val();
+                let e_time = $('input#eventEndTime').val();
+
+                if( s_date > e_date ) {
+                    $( '.error' ).html( "<p>Event start date can not be greater than end date</p>" );
+                    $("html, body").animate({scrollTop: $("#create_event").offset().top + 40 });
+                    event.preventDefault();
+                }
+
+                /*
+                If Event start date is Event end date, make sure start time is not greater not greater than the snd time
+                */
+
+                if( s_date == e_date && s_time > e_time ) {
+                    $( '.error' ).html( "<p>Event start time can not be greater that event end time</p>" );
+                    $("html, body").animate({scrollTop: $("#create_event").offset().top + 40 });
+                    event.preventDefault();
+                }
+            });
+        })
+
+    </script>
+    <footer th:replace="fragments/footerTemplate :: footer"></footer>
+    <script src="./css/bootstrap/js/bootstrap.js" ></script>
+    <script src="./js/header.js" ></script>
+    </body>
+</html>

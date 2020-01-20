@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta http-equiv="content-type" content="charset=UTF-8">
+    <!-- ## SITE META ## -->
+    <meta charset="utf-8">
+    <title>Template</title>
+    <meta name="description" content="">
+    <meta name="author" content="Group1 - Cardiff Uni">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ## LOAD STYLSHEETS ## -->
+    <link rel="stylesheet" type="text/css" href="./css/header_footer.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.css">
+
+    <!-- ## GOOGLE FONTS ## -->
+    <link href="./css/fonts.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<footer class="page-footer font-small bg-dark" th:fragment="footer">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-white">
+            &copy; 2019 Copyright: Group 1 Msc Students | Cardiff University | Build: <span th:text="${session.BUILD}"></span>
+        </div>
+        <!-- Copyright -->
+
+
+    <script th:inline="javascript">
+        // Script for storing event & user data on the user's browser
+        localStorage.setItem( "userId", [[${session.SESSION_USERID}]] );
+    </script>
+
+</footer>
+</body>
+</html>

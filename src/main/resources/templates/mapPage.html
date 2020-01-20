@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<!-- ## SITE META ## -->
+		<meta charset="utf-8">
+		<title>Hodge Events</title>
+		<meta name="description" content="">
+		<meta name="author" content="Group1 - Cardiff Uni">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa2fKq4AtIZchKPBrETMr7MZF-2CvyA44&callback=initMap" defer></script>
+		<link rel="icon" type="image/png" href="./media/favicon.png">
+		<style>
+			#mapIframe {
+				height: 100%;
+				width: 100%;
+				position: unset !important;
+			}
+			::-webkit-scrollbar {
+				display: none;
+			}
+			html,body{
+				overflow: -moz-scrollbars-none;
+				overflow: hidden !important;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div id="mapIframe"></div>
+
+		<script defer>
+		function initMap () {
+			var queryStr = location.search.toString();  // The location data for google maps has been appended to the end of this script's url.
+			var latPat = /(?:lat=)(.*)&/;               // RegEx for extracting the placeId for the place that the user is looking up, from the src url
+			var lat = queryStr.match(latPat)[1];
+			var lngPat = /(?:lng=)(.*)/;                              // RegEx for extracting the LatLng coordinates of the user's current location, from the src url
+			var lng = queryStr.match(lngPat)[1];
+			var locLat = parseFloat(lat);
+			var locLng = parseFloat(lng);
+			try {
+				var googleMap = new google.maps.Map(document.getElementById('mapIframe'), {            // creating instance of google map's Map, attatch it to html element in this document
+					center: {lat:locLat, lng:locLng},                               // providing initial center coordinates for map
+					zoom: 15,
+					disableDefaultUI: true
+				});
+				var marker = new google.maps.Marker({                                    // creating marker for the users current location
+					position: {lat:locLat, lng:locLng},                                 // providing Lat&Lng coords for marker
+					map: googleMap                                          // detailing which map the marker should be placed on
+				});
+			} catch (err) {
+				alert(err);
+			}
+		}
+		</script>
+
+	</body>
+</html>

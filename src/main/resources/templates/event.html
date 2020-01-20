@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<!-- ## SITE META ## -->
+	<meta charset="utf-8">
+	<title>Hodge Events</title>
+	<meta name="description" content="">
+	<meta name="author" content="Group1 - Cardiff Uni">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- favicon  -->
+	<link rel="icon" type="image/png" href="./media/favicon.png">
+
+	<!-- ## LOAD STYLSHEETS ## -->
+	<link rel="stylesheet" media="all" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/bootstrap/css/bootstrap.css" type="text/css">
+
+	<!-- ## GOOGLE FONTS ## -->
+	<link href="../static/css/fonts.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- ## HEADER ## -->
+<header id="qcHeader">
+	<div class="row">
+		<!-- ## LOGO ## -->
+		<div id="qcLogo" class="col-6 col">
+			<a href=""><img src="../static/media/logo-header.png" alt=""></a>
+		</div>
+		<!-- ## SITE NAVIGATION ## -->
+		<nav id="qcPriNav" class="col-6 col">
+			<ul class="clearfix">
+				<li><a href=""><i class="icon-calendar-2 icon"></i> <span>Calendar</span></a></li>
+				<li class="current"><a href="""><i class="icon-ticket icon"></i> <span>Add Events</span></a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<!-- ## CONTENT WRAPPER ## -->
+<div id="qcContentWrapper">
+
+	<!-- ## PAGE TITLE ## -->
+	<section id="qcSecbar">
+		<div class="qcContainer">
+			<h1 style="font-size: 25px;letter-spacing: 3px;">End of the year meet up.</h1>
+		</div>
+	</section>
+
+	<!-- ## PAGE CONTENT ## -->
+	<section id="qcContent">
+		<div class="qcContainer">
+
+			<!-- ## MOB NAV ## -->
+			<div id="qcMbTrigger"> Book Ticket</div>
+
+			<!-- ## TABS ## -->
+			<div id="qcTabs" class="tabs">
+
+				<!-- ## TAB NAV ## -->
+				<ul id="qcTabNav" class="clearfix">
+					<li class="active"><a href="#tab-1"><i class="icon-ticket icon"></i> <span>Details</span></a></li>
+					<li><a href="#tab-2"><i class="icon-mail-1 icon"></i> <span>Location</span></a></li>
+				</ul>
+
+
+				<!-- ===============================================
+
+					PAGE 1 - DESCRIPTION
+
+				=============================================== -->
+				<div id="tab-1" class="qcTabPage clearfix" style="display: block;">
+
+					<!-- ## ROW ## -->
+					<div class="ticket row clearfix">
+
+						<!-- ## TAB TITLE & DESC ## -->
+						<div class="col-8 col">
+							<div class="qcTabTitle no-border">
+								<p class="qcPageDesc full">Lorem ipsum dolor sit amet,
+								consectetur adipisicing elit. Libero, accusamus, sed, necessitatibus ea
+								nemo hic molestias amet tempora fuga pariatur officia itaque eum quis
+								rerum aliquam minus illo nulla laborum!</p>
+								<p class="qcPageDesc full">Lorem ipsum dolor sit amet,
+								consectetur adipisicing elit. Libero, accusamus, sed, necessitatibus ea
+								nemo hic molestias amet tempora fuga pariatur officia itaque eum quis
+								rerum aliquam minus illo nulla laborum!</p>
+								<p class="qcPageDesc full">Lorem ipsum dolor sit amet,
+								consectetur adipisicing elit. Libero, accusamus, sed, necessitatibus ea
+								nemo hic molestias amet tempora fuga pariatur officia itaque eum quis
+								rerum aliquam minus illo nulla laborum!</p>
+							</div>
+						</div>
+
+						<!-- ## TICKET ## -->
+						<div class="col-4 col">
+							<div class="box no-border nopad">
+								<div class="qcTcktRegForm">
+
+									<!-- ## MODULE TITLE ## -->
+									<div class="qcModTitle">
+										<h1>Attending?</h1>
+									</div>
+
+									<!-- ## TICKET FORM ## -->
+									<form action="includes/form/qcForm.php" id="qcTcktForm" class="qcForm" name="qcTcktForm" method="post">
+										<div class="qcTcktSubmit">
+											<input type="hidden" name="formtype" value="ticket">
+											<button type="submit" class="submit">No</button>
+										</div>
+										<div class="qcTcktSubmit">
+											<input type="hidden" name="formtype" value="ticket">
+											<button type="submit" class="submit">Maybe</button>
+										</div>
+										<div class="qcTcktSubmit">
+											<input type="hidden" name="formtype" value="ticket">
+											<button type="submit" class="submit">Yes</button>
+										</div>
+									</form>
+								</div>
+								<!-- ## TICKET FORM END ## -->
+							</div>
+						</div>
+						<!-- ## TICKET END ## -->
+
+					</div>
+					<!-- ## ROW END ## -->
+				</div>
+				<!-- ## PAGE 1 END ## -->
+
+
+				<!-- ===============================================
+
+					PAGE 2 - MAP
+
+				=============================================== -->
+				<div id="tab-2" class="qcTabPage clearfix" style="display: none;">
+
+					<!-- ## ROW ## -->
+					<div class="row clearfix">
+						<script>
+						   // Initialize and add the map
+						   function initMap() {
+							 // The location of Uluru
+							 var uluru = {lat: 51.589662, lng: -3.0003942};
+							 // The map, centered at Uluru
+							 var map = new google.maps.Map(
+								 document.getElementById('map'), {zoom: 18, center: uluru});
+							 // The marker, positioned at Uluru
+							 var marker = new google.maps.Marker({position: uluru, map: map});
+						   }
+					   </script>
+					   <!--Load the API from the specified URL
+					   * The async attribute allows the browser to render the page while the API loads
+					   * The key parameter will contain your own API key (which is not needed for this tutorial)
+					   * The callback parameter executes the initMap() function
+					   -->
+					</div>
+					<!-- ## ROW END ## -->
+
+
+				</div>
+				<!-- ## PAGE 4 END ## -->
+
+
+			</div>
+			<!-- ## TABS END ## -->
+
+		</div>
+	</section>
+	<!-- ## PAGE CONTENT END ## -->
+
+
+</div>
+<!-- ## CONTENT WRAPPER END ## -->
+
+
+<!-- ## FOOTER ## -->
+<footer id="qcFooter" class="clearfix">
+	<div class="qcContainer">
+
+		<!-- ## FOOTER LOGO ## -->
+		<div id="qcFooterLogo" class="col-7 col">
+			<a href="#">
+				<img src="../static/media/logo-header.png" alt="LOGO">
+			</a>
+		</div>
+
+		<!-- ## FOOTER COPYRIGHTS ## -->
+		<div id="qcFooterPara" class="col-5 col">
+			<p>&copy; Group1 Msc Students | Cardiff University</span></p>
+		</div>
+
+	</div>
+</footer>
+<!-- ## FOOTER END ## -->
+
+<!-- ## LOAD JAVASCRIPTS ## -->
+<script type="text/javascript" src="../static/js/jquery.js"></script>
+<script type="text/javascript" src="../static/js/jquery-easing.js"></script>
+<script type="text/javascript" src="../static/js/main.js"></script>
+
+</body></html>

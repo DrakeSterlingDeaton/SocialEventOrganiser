@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <title>Delete</title>
+
+    <!-- favicon  -->
+    <link rel="icon" type="image/png" href="./media/favicon.png">
+
+    <!-- ## GOOGLE FONTS ## -->
+    <link href="./css/fonts.css" rel="stylesheet" type="text/css">
+
+    <!-- ## LOAD STYLSHEETS ## -->
+    <link rel="stylesheet" media="all" href="./css/header_footer.css">
+    <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="./css/deletePage.css">
+    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" type="text/css">
+
+
+</head>
+
+<body>
+<header th:replace="fragments/headerTemplate :: header"></header>
+
+<div  id="feedPost" class="container d-flex justify-content-center">
+
+    <div class="row">
+        <div class="row-header">
+            <div class="d-flex justify-content-start" >
+                <h1 class="text-muted">My Created Events</h1>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <!-- Search box -->
+                <div class="form-inline md-form form-sm active-cyan-2" >
+                    <input class="form-control form-control-sm mr-3 w-75" name="search_value"  onkeyup="searchFunction()" type="text" placeholder="Search" aria-label="Search">
+                    <i class="fas fa-search" aria-hidden="true" onclick="searchFunction()"></i>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column">
+
+            <!-- In case of no matches   -->
+            <div class="d-flex justify-content-start eventNoMatches post-none-search">
+                <h3 class="text-muted mt-3 eventNoMatchesText post-none-search">0 matches found</h3>
+            </div>
+        </div>
+
+
+        <!-- All Posts-->
+        <div class="listAllEventsCreated">
+            <div class="list-group"   >
+                <div class="list-group-item list-group-item-action d-flex" th:each="eventTitles,i : ${eventTitles}" th:value="${i.index + 1}">
+                    <a class="d-flex justify-content-start" th:href="@{/eventPage(eventId=${eventId.get(i.index)})}">
+                        <h5 class="card-title"  th:text=" ${eventTitles}"></h5>
+                    </a>
+
+                    <input type="submit" value="Delete" class="btn" data-toggle="modal" th:attr="data-target='#'+${eventId.get(i.index)}" >
+
+
+
+                    <!--    Modal Warning   -->
+
+                    <div class="modal fade" th:id="${eventId.get(i.index)}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabeeventIdl">Warning</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete this event?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" value="Yes" class="btn" th:onclick="deleteEvents([[${eventId.get(i.index)}]])">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<footer th:replace="fragments/footerTemplate :: footer"></footer>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script src="./css/bootstrap/js/bootstrap.js" ></script>
+<script src="./js/header.js" ></script>
+<script src="./js/deletePage.js" ></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
+
+
+
+</body>
+</html>
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 1px 1px 3px #aaaaaa;
+    margin-bottom: 2em;
+}
+
+
+.navbar-brand{
+    transform: scale(0.6,0.6);
+}
+
+.navbar{
+    height: 63px !important;
+}
+
+@media only screen and (max-width: 992px) {
+    .nav-item > a {
+        border-bottom: solid 2px white;
+    }
+
+    .navbar-nav > li {
+        width: 100% !important;
+    }
+    .navbar{
+        height: 100% !important;
+    }
+    .active-menu{
+        border-bottom: unset !important;
+    }
+
+    ul{
+        border-top: solid 2px black;
+        padding: 15px 0px;
+    }
+
+}
+
+
+.navbar-nav > li {
+    float: left;
+    position: relative;
+    list-style: none;
+    overflow: hidden;
+    border-left: solid 2px white;
+}
+
+.active-menu{
+    border-bottom: 2px solid #ffcb05;
+}
+
+
+
+.navbar-nav li a {
+    display: block;
+    color: #fff;
+    font: 600 12px "Open sans", Helvetica, sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all .25s linear;
+    -o-transition: all .25s linear;
+    -moz-transition: all .25s linear;
+    -webkit-transition: all .25s linear;
+}
+
+.navbar-nav > li > a:hover {
+
+}
+
+footer{
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    text-align: center;
+    position: absolute;
+    margin-top:2vh;
+}
+
+body {
+    position: relative;
+    min-height: 130vh;
+    max-height: 1000vh !important;
+    padding-bottom: 100px !important;
+}
+
+.btn-login{
+    background: #ffcb05 !important;
+}
